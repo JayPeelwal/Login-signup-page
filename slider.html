@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <link rel="stylesheet" href="sliders.css">
+</head>
+
+<body>
+    <div class="slider-container">
+        <div class="slider">
+            <img src="day 1.jpg" alt="Slide 1" class="slide">
+            <img src="DRK08704.jpg" alt="Slide 2" class="slide">
+            <img src="DRK08728.jpg" alt="Slide 3" class="slide">
+        </div>
+        <button class="prev-btn" onclick="prevSlide()">&#10094;</button>
+        <button class="next-btn" onclick="nextSlide()">&#10095;</button>
+        <div class="dot-container">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
+
+</body>
+<script src="script.js">
+    const slides = document.querySelectorAll(".slide");
+    const dots = document.querySelectorAll(".dot");
+    let currentSlide = 1;
+
+    // Function to show the current slide
+    function showSlide(n) {
+        if (n > slides.length) {
+            currentSlide = 1;
+        } else if (n < 1) {
+            currentSlide = slides.length;
+        }
+    }
+    slides.forEach((slide) => (slide.style.opacity = 0));
+    dots.forEach((dot) => dot.classList.remove("active"));
+
+    slides[currentSlide - 1].style.opacity = 1;
+    dots
+</script>
+
+</html>
